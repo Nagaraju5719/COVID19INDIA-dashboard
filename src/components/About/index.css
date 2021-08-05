@@ -1,0 +1,71 @@
+.about-container {
+  background-color: #161625;
+  display: flex;
+  flex-direction: column;
+  padding-left: 90px;
+  padding-left: 90px;
+  padding-top: 50px;
+  height: 100%;
+}
+.about-page-container {
+  width: 90%;
+}
+.about-heading {
+  color: #fefffc;
+  margin: 0px;
+}
+.query-updation {
+  color: #94a3b8;
+}
+.vaccine-update {
+  color: #e2e8f0;
+  font-size: 22px;
+}
+.dummy {
+  color: white;
+}
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+}
+.question {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  color: #94a3b8;
+}
+.answer {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  color: #007bff;
+}
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-heading {
+  color: white;
+  font-size: 24px;
+}
+
+.country {
+  color: #1686f0;
+}
+.footer-description {
+  color: #a3a69d;
+}
+.footer-icons-list {
+  display: flex;
+}
+.footer-icons {
+  height: 40px;
+  width: 40px;
+  margin: 40px;
+}

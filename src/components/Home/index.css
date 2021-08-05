@@ -1,0 +1,78 @@
+.home-container {
+  background-color: #161625;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+.search-container {
+  display: flex;
+  border-radius: 5px;
+  background-color: #2f2f43;
+  width: 50%;
+  height: 50px;
+  margin: 50px;
+}
+.search-icon {
+  margin: 15px;
+  height: 20px;
+  width: 20px;
+}
+.searchbar {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 80%;
+  color: white;
+}
+.table-container {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  width: 80%;
+}
+.table-heading-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.column-name {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+.horizontal-line {
+  height: 2px;
+  color: white;
+}
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-heading {
+  font-family: 'Bree Serif';
+  color: #f8fafc;
+  font-size: 24px;
+}
+
+.country {
+  color: #1686f0;
+}
+.footer-description {
+  color: #a3a69d;
+}
+.footer-icons-list {
+  display: flex;
+}
+.footer-icons {
+  height: 40px;
+  width: 40px;
+  margin: 40px;
+}
