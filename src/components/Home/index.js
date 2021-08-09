@@ -1,8 +1,12 @@
 import {Component} from 'react'
 
+import SpecificStateDetails from '../StateSpecificRoute'
+
 import './index.css'
 
 class Home extends Component {
+  state = {stateCasesList: [], searchInput: ''}
+
   componentDidMount() {
     this.getCovidData()
   }
@@ -12,10 +16,99 @@ class Home extends Component {
       'https://api.covid19india.org/v4/min/data.min.json',
     )
     const fetchedData = await response.json()
-    console.log(fetchedData)
+
+    const {
+      AN,
+      AP,
+      AR,
+      AS,
+      BR,
+      CH,
+      CT,
+      DL,
+      DN,
+      GA,
+      GJ,
+      HP,
+      HR,
+      JH,
+      JK,
+      KA,
+      KL,
+      LA,
+      LD,
+      MH,
+      ML,
+      MN,
+      MP,
+      MZ,
+      NL,
+      OR,
+      PB,
+      PY,
+      RJ,
+      SK,
+      TG,
+      TN,
+      TR,
+      TT,
+      UP,
+      UT,
+      WB,
+    } = fetchedData
+    const a = [
+      AN,
+      AP,
+      AR,
+      AS,
+      BR,
+      CH,
+      CT,
+      DL,
+      DN,
+      GA,
+      GJ,
+      HP,
+      HR,
+      JH,
+      JK,
+      KA,
+      KL,
+      LA,
+      LD,
+      MH,
+      ML,
+      MN,
+      MP,
+      MZ,
+      NL,
+      OR,
+      PB,
+      PY,
+      RJ,
+      SK,
+      TG,
+      TN,
+      TR,
+      TT,
+      UP,
+      UT,
+      WB,
+    ]
+
+    this.setState({stateCasesList: a})
+  }
+
+  getSearchedState = event => {
+    const {statesList} = this.props
+    console.log(event.target.value)
+
+    this.setState({searchInput: event.target.value})
   }
 
   render() {
+    const {stateCasesList, searchInput} = this.state
+
     return (
       <div className="home-container">
         <div className="search-container">
@@ -28,18 +121,30 @@ class Home extends Component {
             type="search"
             className="searchbar"
             placeholder="Enter the State/UT"
+            onChange={this.getSearchedState}
           />
         </div>
         <div className="table-container">
           <div className="table-heading-container">
-            <h1 className="column-name">States/UT</h1>
-            <h1 className="column-name">Conformed</h1>
-            <h1 className="column-name">Active</h1>
-            <h1 className="column-name">Recovered</h1>
-            <h1 className="column-name">Deceased</h1>
-            <h1 className="column-name">Population</h1>
+            <h1 className="column-name heading">States/UT</h1>
+            <h1 className="column-name heading confirmed">Conformed</h1>
+            <h1 className="column-name heading active">Active</h1>
+            <h1 className="column-name heading recovered">Recovered</h1>
+            <h1 className="column-name heading deceased">Deceased</h1>
+            <h1 className="column-name heading population">Population</h1>
           </div>
           <hr className="horizontal-line" />
+
+          {stateCasesList.map((each, index, arr) => (
+            <div className="table-heading-container" key={each.index}>
+              <h1 className="column-name">{index}</h1>
+              <h1 className="column-name confirmed">{each.total.confirmed}</h1>
+              <h1 className="column-name active">{each.total.tested}</h1>
+              <h1 className="column-name recovered">{each.total.recovered}</h1>
+              <h1 className="column-name deceased">{each.total.deceased}</h1>
+              <h1 className="column-name population">{each.meta.population}</h1>
+            </div>
+          ))}
         </div>
 
         {/* FOOTER SECTION */}

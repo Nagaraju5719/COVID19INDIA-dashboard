@@ -1,40 +1,8 @@
 import {Component} from 'react'
 import './index.css'
 
-/* Dummy data to know where Iam getting wrong */
-
-const faqsList = [
-  {
-    id: 0,
-    questionText: 'What is IRC?',
-    answerText:
-      'IRC is an Industry Ready Certification that represents your readiness for a job with the necessary skills.',
-  },
-  {
-    id: 1,
-    questionText: 'What is the medium of instruction?',
-    answerText:
-      'The courses would be delivered in English and Telugu. The program will be available in more vernacular languages soon. kjhizhn igicbsz igih ihzihc kzc khgzihcgm zjguzb djzbdcz jzgdcuiz ',
-  },
-  {
-    id: 2,
-    questionText:
-      'Is there an EMI option to pay the fee for CCBP Tech 4.0 Intensive?',
-    answerText:
-      'Yes, EMI support is available for credit cards. Please select EMI option while making payment for more information.',
-  },
-  {
-    id: 3,
-    questionText: 'How will my doubts be cleared? What is the mechanism?',
-    answerText:
-      'You can ask your doubts in the discussions section and course mentor will answer them. You can also see the doubts asked by other students.',
-  },
-]
-
-/* Dummy data to know where Iam getting wrong */
-
 class About extends Component {
-  state = {covidFaqs: faqsList}
+  state = {covidFaqs: []}
 
   componentDidMount() {
     this.getFaqs()
@@ -46,11 +14,15 @@ class About extends Component {
     )
 
     const faqData = await response.json()
+    console.log(faqData)
+    const {faq} = faqData
+    console.log(faq)
+    this.setState({covidFaqs: faq})
   }
 
   render() {
     const {covidFaqs} = this.state
-    const {questionText, answerText} = covidFaqs
+    const {question, answer} = covidFaqs
     return (
       <div className="about-container">
         <div className="about-page-container">
@@ -60,11 +32,10 @@ class About extends Component {
             COVID19 vaccines be ready for distribution.
           </p>
           <div className="faqContainer">
-            <h1 className="dummy">DUMMY DATA</h1>
-            {faqsList.map(eachFaq => (
+            {covidFaqs.map(eachFaq => (
               <>
-                <h1 className="question">{eachFaq.questionText}</h1>
-                <p className="answer">{eachFaq.answerText}</p>
+                <h1 className="question">{eachFaq.question}</h1>
+                <p className="answer">{eachFaq.answer}</p>
               </>
             ))}
           </div>
